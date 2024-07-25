@@ -1,0 +1,13 @@
+{
+  "name": "com.shaunfong.mindmachine",
+  "version": "1.0.0",
+  "displayName": "Mind Machine",
+  "description": "A behavior machine-based AI framework for Unity3D.",
+  "unity": "2022.3",
+  "dependencies": {
+    "com.unity.test-framework": "1.1.33"
+  },
+  "author": {
+    "name": "ShaunFong"
+  }
+}

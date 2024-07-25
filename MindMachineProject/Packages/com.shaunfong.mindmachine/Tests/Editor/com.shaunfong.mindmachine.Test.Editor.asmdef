@@ -1,0 +1,26 @@
+{
+    "name": "com.shaunfong.mindmachine.Test.Editor",
+    "rootNamespace": "com.shaunfong.mindmachine.Test.Editor",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "com.shaunfong.mindmachine.Runtime",
+        "com.shaunfong.mindmachine.Editor",
+        "com.shaunfong.mindmachine.Test.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
