@@ -1,6 +1,6 @@
 {
     "name": "com.shaunfong.mindmachine.Editor",
-    "rootNamespace": "com.shaunfong.mindmachine.Editor",
+    "rootNamespace": "MindMachine.Editor",
     "references": [
         "com.shaunfong.mindmachine.Runtime"
     ],

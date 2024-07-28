@@ -5,8 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public static PlayerController Instance { get; private set; }
+
     public float MoveSpeed = 1.0f;
     private Animator _anim;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -19,13 +26,9 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
-        if (x < 0)
+        if (x != 0)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (x > 0)
-        {
-            transform.localRotation = Quaternion.identity;
+            transform.localRotation = Quaternion.Euler(0, x < 0 ? 180 : 0, 0);
         }
 
         if (x != 0 || y != 0)
@@ -37,7 +40,8 @@ public class PlayerController : MonoBehaviour
             _anim.Play("Idle");
         }
 
-        transform.Translate(Vector2.right * x * MoveSpeed + Vector2.up * y * MoveSpeed, Space.World);
+        Vector3 moveDir = Vector2.right * x * MoveSpeed + Vector2.up * y * MoveSpeed;
+        transform.Translate(moveDir * Time.deltaTime, Space.World);
 
     }
 }

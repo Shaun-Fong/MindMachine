@@ -1,7 +1,9 @@
 {
     "name": "com.shaunfong.mindmachine.Runtime",
-    "rootNamespace": "com.shaunfong.mindmachine.Runtime",
-    "references": [],
+    "rootNamespace": "MindMachine",
+    "references": [
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
