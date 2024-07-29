@@ -21,24 +21,15 @@ public class Follower : DinoAI
         _mindMachine?.Release();
     }
 
-    void Update()
-    {
-        if (State == DinoStatus.OtherBehavior && m_Timer > 0)
-        {
-            m_Timer -= Time.deltaTime;
-            if (m_Timer <= 0)
-            {
-                Idle();
-            }
-        }
-    }
-
     internal override void TriggerEnterCallback()
     {
-        OtherBehavior();
-        if (FollowTime != -1)
+        if (State == DinoStatus.Idle)
         {
-            m_Timer = FollowTime;
+            OtherBehavior();
+        }
+        else
+        {
+            Idle();
         }
     }
 

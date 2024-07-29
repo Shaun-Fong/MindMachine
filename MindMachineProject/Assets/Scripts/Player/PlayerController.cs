@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public float MoveSpeed = 1.0f;
     private Animator _anim;
+
+    private bool _underAttack = false;
 
     void Awake()
     {
@@ -31,17 +36,28 @@ public class PlayerController : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, x < 0 ? 180 : 0, 0);
         }
 
-        if (x != 0 || y != 0)
+        if (_underAttack == false)
         {
-            _anim.Play("Walk");
-        }
-        else
-        {
-            _anim.Play("Idle");
+            if (x != 0 || y != 0)
+            {
+                _anim.Play("Walk");
+            }
+            else
+            {
+                _anim.Play("Idle");
+            }
         }
 
         Vector3 moveDir = Vector2.right * x * MoveSpeed + Vector2.up * y * MoveSpeed;
         transform.Translate(moveDir * Time.deltaTime, Space.World);
 
+    }
+
+    internal async UniTaskVoid Hit(CancellationToken cancellationToken)
+    {
+        _underAttack = true;
+        _anim.Play("Hit");
+        await UniTask.Delay(300, cancellationToken: cancellationToken);
+        _underAttack = false;
     }
 }

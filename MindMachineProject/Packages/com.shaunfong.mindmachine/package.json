@@ -5,7 +5,8 @@
   "description": "A behavior machine-based AI framework for Unity3D.",
   "unity": "2022.3",
   "dependencies": {
-    "com.unity.test-framework": "1.1.33"
+    "com.unity.test-framework": "1.1.33",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.5"
   },
   "author": {
     "name": "ShaunFong"

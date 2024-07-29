@@ -61,7 +61,7 @@ namespace MindMachine
                         BehaviorTick().Forget();
                     }
                 }
-                await UniTask.Yield();
+                await UniTask.NextFrame();
             }
         }
 
@@ -73,7 +73,7 @@ namespace MindMachine
                 {
                     await _CurrentBehaviorNode.Tick(_instance);
                 }
-                await UniTask.Yield();
+                await UniTask.NextFrame();
             }
         }
     }
