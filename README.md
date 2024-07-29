@@ -14,7 +14,26 @@ Make game AI development easy 🎉.
     <img src="https://github.com/user-attachments/assets/b37b649b-ef3d-4677-9432-f3a287cd6f42" alt="Attack" style="width: 200px;"/>
 </p>
 
-# Assets
+## Example
+``` C#
+//Attack behavior
+public override async UniTask Tick(Attacker instance)
+{
+    //Wait 1 second.
+    await UniTask.Delay(1000);
+
+    //Show marker.
+    await instance.ShowMark(CancelToken);
+
+    //Move to player
+    await instance.MoveTo(PlayerController.Instance.transform.position, CancelToken).AttachExternalCancellation(CancelToken);
+
+    //Attack!
+    await instance.Attack(PlayerController.Instance, CancelToken);
+}
+```
+
+## Assets
 [Dino Characters by Arks](https://twitter.com/ScissorMarks)
  
 [NinjaAdventure by pixel-boy](https://github.com/pixel-boy/NinjaAdventure)
